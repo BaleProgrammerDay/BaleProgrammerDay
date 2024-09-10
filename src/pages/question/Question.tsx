@@ -137,7 +137,7 @@ export const Question = () => {
               {questionInfo.has_zip && (
                 <div className={styles.assetBox}>
                   <a
-                    href={`http://188.121.122.87:80/${questionInfo.zip_file_url}`}
+                    href={`http://188.121.122.87:5000/${questionInfo.zip_file_url}`}
                     className={styles.assetZip}
                     dir="ltr"
                     target="_blank"
