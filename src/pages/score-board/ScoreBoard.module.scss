@@ -1,0 +1,265 @@
+.ScoreBoard {
+  width: 100vw;
+  min-height: 100vh;
+  height: 100%;
+
+  direction: ltr;
+  background-image: linear-gradient(90deg, #000000b4 0%, #000000b4 100%),
+    url("../../assets/images/image.jpeg");
+  background-size: cover;
+  font-family: "";
+}
+.body {
+  height: 85vh;
+  padding: 5% 20%;
+  flex-grow: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 40px;
+  overflow: scroll;
+}
+.upper {
+  height: 536px;
+  width: 100%;
+  align-self: stretch;
+  flex-grow: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 16px;
+  padding: 0;
+}
+.section {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 36px;
+  padding: 0;
+}
+.upperBox1 {
+  height: 350px;
+  align-self: stretch;
+  flex-grow: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 16px 32px;
+  border-radius: 16px;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  background-color: rgba(217, 217, 217, 0.3);
+}
+.upperBox2 {
+  height: 285px;
+  align-self: stretch;
+  flex-grow: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 16px 32px;
+  border-radius: 16px;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  background-color: rgba(217, 217, 217, 0.3);
+}
+.upperBox3 {
+  height: 254px;
+  align-self: stretch;
+  flex-grow: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 16px 32px;
+  border-radius: 16px;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  background-color: rgba(217, 217, 217, 0.3);
+}
+.image {
+  width: 150px;
+  height: 150px;
+  flex-grow: 0;
+  border-radius: 16px;
+  box-shadow: 0 0 16px 7px rgba(217, 217, 217, 0.3);
+}
+.first {
+  width: 150px;
+  height: 150px;
+  flex-grow: 0;
+  padding: 23.9px 18.5px 23.9px 19px;
+}
+.second {
+  width: 100px;
+  height: 100px;
+  flex-grow: 0;
+  padding: 16px 11.5px 15.9px 13px;
+}
+.third {
+  width: 90px;
+  height: 90px;
+  flex-grow: 0;
+  padding: 14px 11.5px 14.7px 11px;
+}
+.uppername {
+  height: 46px;
+  align-self: stretch;
+  flex-grow: 0;
+  font-size: 36px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #fff;
+}
+.upperScore {
+  width: 205px;
+  height: 32px;
+  flex-grow: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+}
+.upperText {
+  width: 74px;
+  height: 56px;
+  flex-grow: 0;
+  font-size: 36px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+}
+.down {
+  height: 316px;
+  align-self: stretch;
+  flex-grow: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 24px;
+  padding: 0;
+}
+.title {
+  width: 100%;
+  height: 50px;
+  flex-grow: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 15px;
+  padding: 0;
+}
+.texts {
+  height: 35px;
+  align-self: stretch;
+  flex-grow: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+}
+.titleText {
+  width: 205px;
+  height: 51px;
+  flex-grow: 0;
+  font-size: 24px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #fff;
+}
+.Line {
+  height: 2px;
+  width: 100%;
+  align-self: stretch;
+  flex-grow: 0;
+  background-color: #0cbc8d;
+}
+.ranks {
+  height: fit-content;
+  align-self: stretch;
+  flex-grow: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 24px;
+  padding: 0;
+}
+.rankBox {
+  width: 100%;
+  height: 80px;
+  flex-grow: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  gap: 10px;
+  padding: 0;
+  border-radius: 16px;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  background-color: rgba(217, 217, 217, 0.3);
+
+  &.Self {
+    background-color: #0cbc8d88;
+  }
+}
+.inside {
+  height: 51px;
+  align-self: stretch;
+  flex-grow: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+}
+.text {
+  width: 205px;
+  flex-grow: 0;
+  font-size: 24px;
+  font-weight: Medium;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #fff;
+}
+.part {
+  width: 205px;
+  height: 32px;
+  flex-grow: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+}
+.dimond {
+  width: 24px;
+  height: 24px;
+}

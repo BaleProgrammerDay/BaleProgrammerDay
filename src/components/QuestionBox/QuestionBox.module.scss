@@ -1,0 +1,70 @@
+.QuestionBox {
+  width: 90px;
+  height: 90px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 19px 16px;
+  border-radius: 16px;
+
+  background-color: rgb(238, 61, 61);
+
+  cursor: pointer;
+  font-size: 1.5rem;
+
+  &.isActive {
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    background-color: rgba(217, 217, 217, 0.3);
+  }
+  &.isPurchased {
+    backdrop-filter: blur(0);
+    background-color: #ededed;
+  }
+
+  &.isAnswerd {
+    background-color: #0cbc8d;
+  }
+}
+
+.WantBuy {
+  display: flex;
+  flex-direction: column;
+  background-color: #ededed;
+
+  span {
+    font-size: 0.75rem;
+    padding: 0 0.25rem;
+  }
+
+  .Info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid black;
+  }
+
+  .Buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1rem 1.5rem;
+    button {
+      border: none;
+      cursor: pointer;
+      padding: 2px 4px;
+      border-radius: 4px;
+
+      color: white;
+      &:first-of-type {
+        background-color: green;
+      }
+      &:last-of-type {
+        background-color: red;
+      }
+    }
+  }
+}

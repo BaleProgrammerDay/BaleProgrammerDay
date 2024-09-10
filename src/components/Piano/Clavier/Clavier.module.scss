@@ -1,0 +1,53 @@
+$width: 40px;
+
+.Clavier {
+  height: 100%;
+  width: 50px;
+  background-color: white;
+  border: 2px solid black;
+  cursor: pointer;
+  box-shadow: inset 0 -4px 0 4px rgba(0, 0, 0, 0.25);
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  color: black;
+  padding-bottom: 10px;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: inset 0 4px 0 4px rgba(0, 0, 0, 0.5);
+    background-color: #ededed;
+    transition: opacity 0.2s ease;
+  }
+
+  &:active::after {
+    opacity: 1;
+  }
+
+  &.Black {
+    position: absolute;
+    width: $width;
+    z-index: 5;
+    background-color: #0e0e0e;
+    top: 0;
+    height: 80%;
+    left: calc(-1 * $width / 2);
+    box-shadow: inset 0 -4px 0 4px rgba(255, 255, 255, 0.35);
+    color: white;
+
+    &::after {
+      background-color: #000;
+      box-shadow: inset 0 4px 0 4px rgba(255, 255, 255, 0.25);
+    }
+    &:active::after {
+      opacity: 1;
+    }
+  }
+}

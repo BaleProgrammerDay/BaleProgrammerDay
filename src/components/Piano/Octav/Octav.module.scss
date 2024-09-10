@@ -1,0 +1,21 @@
+.Octav {
+  position: relative;
+
+  display: flex;
+  gap: 2px;
+  height: 100%;
+  width: fit-content;
+
+  .ClavieWrapper {
+    position: relative;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 95%;
+    border: 1px solid black;
+  }
+}
