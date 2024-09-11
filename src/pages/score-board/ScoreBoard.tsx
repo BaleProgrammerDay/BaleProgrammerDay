@@ -39,7 +39,7 @@ export const ScoreBoard = () => {
         <div className={styles.body}>
           <div className={styles.upper}>
             <div className={styles.section}>
-              <img src={image} className={styles.image} alt="" />
+              {/* <img src={image} className={styles.image} alt="" /> */}
               <div className={styles.upperBox2}>
                 <img src={second} className={styles.second} alt="" />
                 <span className={styles.uppername}>{teams[2].name}</span>
@@ -55,7 +55,7 @@ export const ScoreBoard = () => {
               </div>
             </div>
             <div className={styles.section}>
-              <img src={image} className={styles.image} alt="" />
+              {/* <img src={image} className={styles.image} alt="" /> */}
               <div className={styles.upperBox1}>
                 <img src={first} className={styles.first} alt="" />
                 <span className={styles.uppername}>{teams[0].name}</span>
@@ -68,7 +68,7 @@ export const ScoreBoard = () => {
               </div>
             </div>
             <div className={styles.section}>
-              <img src={image} className={styles.image} alt="" />
+              {/* <img src={image} className={styles.image} alt="" /> */}
               <div className={styles.upperBox3}>
                 <img src={third} className={styles.third} alt="" />
                 <span className={styles.uppername}>{teams[1].name}</span>
