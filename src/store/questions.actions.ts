@@ -75,7 +75,7 @@ export const getOneQusetion = createAsyncThunk(
 
       const res = req.data;
 
-      cb(res);
+      cb({ ...res, isStarred: res.is_starred });
     } catch (error) {
       console.log(error);
     }

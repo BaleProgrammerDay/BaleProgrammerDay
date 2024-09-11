@@ -27,9 +27,6 @@ export const LocalModal: FC<LocalModalProps> = ({
 }) => {
   const { active } = states;
 
-  const appDispatch = useDispatch<AppDispatch>();
-  const navigate = useNavigate();
-
   useEffect(() => {
     setStates((prev) => ({ ...prev, active: true }));
   }, [setStates]);

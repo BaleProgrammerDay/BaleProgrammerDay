@@ -1,7 +1,38 @@
 .Typing {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 40px 0;
+
   &:focus {
     outline: none;
   }
+}
+
+.Info {
+  display: flex;
+  gap: 10px;
+}
+
+.Timer {
+  display: flex;
+  gap: 10px;
+  p {
+    width: 100px;
+  }
+}
+
+.Loser {
+  background-color: white;
+  width: 200px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  font-size: 2rem;
 }
 
 .TextWanted {
@@ -9,11 +40,18 @@
   flex-wrap: wrap;
   gap: 1rem;
 
+  max-height: 80vh;
+  overflow-y: scroll;
+  width: 80%;
+  border: 1px solid black;
+  padding: 20px 10px;
+  justify-content: center;
+
   .Letter {
     text-align: center;
     vertical-align: middle;
     aspect-ratio: 1;
-    width: 30px;
+    width: 35px;
     border: 1px solid #000;
     padding: 4px;
 
@@ -22,12 +60,15 @@
     }
     &.Correct {
       background-color: green;
+      color: white;
     }
     &.Wrong {
       background-color: red;
+      color: white;
     }
     &.Next {
       background-color: blue;
+      color: white;
     }
   }
 }

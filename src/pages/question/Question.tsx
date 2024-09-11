@@ -16,7 +16,8 @@ import { questionActions } from "~/store/questions.slice";
 import { Loading } from "~/components";
 import clsx from "clsx";
 import { getDir } from "~/utils";
-import { GetAxiosInstance } from "~/api/configApi";
+import { baseUrl } from "~/api/configApi";
+import { Typing } from "../typing/Typing";
 
 export const Question = () => {
   const { questions } = useSelector((state: RootState) => state.questions);
@@ -82,93 +83,119 @@ export const Question = () => {
 
   const { text, links } = convertTextToValidText(questionInfo?.text);
 
+  const renderQuestion =
+    questionInfo &&
+    question &&
+    ["TypingLeft", "TypingRight"].includes(questionInfo.title) ? (
+      <Typing
+        qid={question.id}
+        qTitle={questionInfo.title}
+        qPoint={question.score}
+      />
+    ) : null;
+
   return (
-    <div className={styles.Question} dir="rtl">
-      <Header />
-      {!questionInfo ? (
-        <Loading />
-      ) : (
-        <div className={styles.body}>
-          <div className={styles.QuestionBox}>
-            <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-              <div className={styles.TitleBar}>
-                <div className={styles.QuestionTitle}>
-                  {questionInfo?.title}
-                </div>
-                <div className={styles.QuestionOther}>
-                  <div className={styles.category}>
-                    <span className={styles.categoryText}>درجه سختی</span>
-                    <div className={styles.StarBox}>
-                      {Array(questionInfo.level)
-                        .fill(0)
-                        .map((_, index) => (
-                          <img
-                            key={index}
-                            src={
-                              index > questionInfo.level ? emptyStar : fullStar
-                            }
-                            className={styles.icon}
-                            alt=""
-                          />
-                        ))}
+    renderQuestion ?? (
+      <div className={styles.Question} dir="rtl">
+        <Header />
+        {!questionInfo ? (
+          <Loading />
+        ) : (
+          <div className={styles.body}>
+            <div className={styles.QuestionBox}>
+              <div
+                style={{ display: "flex", flexDirection: "column", gap: 12 }}
+              >
+                <div className={styles.TitleBar}>
+                  <div className={styles.QuestionTitle}>
+                    {questionInfo?.title}
+                  </div>
+                  <div className={styles.QuestionOther}>
+                    <div className={styles.category}>
+                      <span className={styles.categoryText}>درجه سختی</span>
+                      <div className={styles.StarBox}>
+                        {Array(3)
+                          .fill(0)
+                          .map((_, index) => (
+                            <img
+                              key={index}
+                              src={
+                                index + 1 > questionInfo.cost
+                                  ? emptyStar
+                                  : fullStar
+                              }
+                              className={styles.icon}
+                              alt=""
+                            />
+                          ))}
+                      </div>
+                    </div>
+                    <div className={styles.category}>
+                      <span className={styles.categoryText}>سوال </span>
+                      <span
+                        className={clsx(styles.greenText, {
+                          [styles.yellow]: questionInfo.isStarred,
+                        })}
+                      >
+                        {questionInfo.isStarred ? "طلایی" : "عادی"}
+                      </span>
                     </div>
                   </div>
-                  <div className={styles.category}>
-                    <span className={styles.categoryText}>سوال </span>
-                    <span className={styles.greenText}>
-                      {questionInfo.isStarred ? "طلایی" : "عادی"}
-                    </span>
-                  </div>
                 </div>
+                <div className={styles.Line} />
               </div>
-              <div className={styles.Line} />
-            </div>
-            <span className={styles.QuestionText}>{text}</span>
-            <div className={styles.assets}>
-              {links.length > 0 &&
-                links.map((link) => (
-                  <div className={styles.assetBox} key={link}>
-                    <img className={styles.assetImg} src={link} alt="" />
-                    <span className={styles.assetText}>
-                      {link.split("//")[1].split(".")[0]}
-                    </span>
+              {links.length === 1 && (
+                <div className={styles.Poster}>
+                  <img src={links[0]} />
+                </div>
+              )}
+              <span className={styles.QuestionText}>{text}</span>
+              <div className={styles.assets}>
+                {links.length > 0 &&
+                  links.map((link) => (
+                    <div className={styles.assetBox} key={link}>
+                      <img className={styles.assetImg} src={link} alt="" />
+                      <span className={styles.assetText}>
+                        {link.split("//")[1].split(".")[0]}
+                      </span>
+                    </div>
+                  ))}
+                {questionInfo.has_zip && (
+                  <div className={styles.assetBox}>
+                    <a
+                      href={`${baseUrl}/${questionInfo.zip_file_url}`}
+                      className={styles.assetZip}
+                      dir="ltr"
+                      target="_blank"
+                    >
+                      File Zip!
+                    </a>
                   </div>
-                ))}
-              {questionInfo.has_zip && (
-                <div className={styles.assetBox}>
-                  <a
-                    href={`http://188.121.122.87:5000/${questionInfo.zip_file_url}`}
-                    className={styles.assetZip}
-                    dir="ltr"
-                    target="_blank"
-                  >
-                    File Zip!
-                  </a>
+                )}
+              </div>
+              {!question?.isAnswerd && (
+                <div className={styles.SubmitBar}>
+                  <input
+                    className={styles.SubmitBox}
+                    type="text"
+                    placeholder="پاسخ خود را وارد کنید"
+                    onChange={handleChangeResult}
+                    style={{ direction: result ? getDir(result) : "rtl" }}
+                  />
+                  <div>
+                    <button
+                      className={clsx(styles.Submit, styles.SubmitTxt)}
+                      onClick={handleSubmit}
+                    >
+                      ثبت
+                    </button>
+                  </div>
                 </div>
               )}
             </div>
-            {!question?.isAnswerd && (
-              <div className={styles.SubmitBar}>
-                <input
-                  className={styles.SubmitBox}
-                  type="text"
-                  placeholder="پاسخ خود را وارد کنید"
-                  onChange={handleChangeResult}
-                  style={{ direction: result ? getDir(result) : "rtl" }}
-                />
-                <div>
-                  <button
-                    className={clsx(styles.Submit, styles.SubmitTxt)}
-                    onClick={handleSubmit}
-                  >
-                    ثبت
-                  </button>
-                </div>
-              </div>
-            )}
           </div>
-        </div>
-      )}
-    </div>
+        )}
+      </div>
+    )
   );
 };
