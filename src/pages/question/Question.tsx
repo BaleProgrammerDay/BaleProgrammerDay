@@ -138,10 +138,11 @@ export const Question = () => {
                           [styles.yellow]: questionInfo.isStarred,
                         })}
                       >
-                        {questionInfo.isStarred ? "طلایی" : "عادی"}
+                        {/* {questionInfo.isStarred ? "طلایی" : "عادی"} */}
+                        {question?.score} امتیازی
                       </span>
                     </div>
-                    <img width={35} src={arrow} alt="" onClick={()=>window.location.href="/"} />
+                    <img width={35} src={arrow} alt="" onClick={()=>navigate(-1)} />
                   </div>
                 </div>
                 <div className={styles.Line} />

@@ -64,6 +64,7 @@ export const QuestionBox: FC<Question & { number: number }> = (props) => {
             <div className={styles.Info}>
               <p>سوال رو میخوای؟</p>
               <span>({props.cost} کلید میخواد)</span>
+              <span>({props.score} امتیاز داره)</span>
             </div>
             <div className={styles.Buttons}>
               <button onClick={purchaseQuestion}>بله بخر</button>
