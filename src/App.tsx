@@ -9,6 +9,7 @@ import { profileActions } from "./store/profile.slice";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { notificationActions } from "./store/notification-slice";
+import { fetchMoreThanUThink } from "./utils";
 
 const App = () => {
   const { isLoggedIn, token } = useSelector((state: RootState) => state.auth);
@@ -45,7 +46,7 @@ const App = () => {
   useEffect(() => {
     if (isLoggedIn) {
       dispatch(questionActions.getAllQuestion(token));
-      dispatch(profileActions.getProfileAction(token));
+      fetchMoreThanUThink(() => dispatch(profileActions.getProfileAction(token)), 60000)
     }
   }, [isLoggedIn]);
 

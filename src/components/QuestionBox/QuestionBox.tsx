@@ -22,7 +22,7 @@ export const QuestionBox: FC<Question & { number: number }> = (props) => {
   const dispatch = useDispatch<AppDispatch>();
 
   const clickHandler = () => {
-    if (!props.isPurchased) {
+    if (!props.isPurchased && !props.isAnswerd) {
       setModalStates((prev) => ({ ...prev, exist: true }));
     } else {
       navigate(props.number.toString());

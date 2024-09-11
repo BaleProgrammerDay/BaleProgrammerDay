@@ -105,7 +105,12 @@ export const Question = () => {
           <div className={styles.body}>
             <div className={styles.QuestionBox}>
               <div
-                style={{ display: "flex", flexDirection: "column", gap: 12 }}
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: 12,
+                  position: "relative",
+                }}
               >
                 <div className={styles.TitleBar}>
                   <div className={styles.QuestionTitle}>
@@ -142,7 +147,12 @@ export const Question = () => {
                         {question?.score} امتیازی
                       </span>
                     </div>
-                    <img width={35} src={arrow} alt="" onClick={()=>navigate(-1)} />
+                    <img
+                      width={35}
+                      src={arrow}
+                      alt=""
+                      onClick={() => navigate(-1)}
+                    />
                   </div>
                 </div>
                 <div className={styles.Line} />
@@ -152,10 +162,15 @@ export const Question = () => {
                   <img src={links[0]} />
                 </div>
               )}
-              <span className={styles.QuestionText}>{text}</span>
+              <pre
+                className={styles.QuestionText}
+                style={{ direction: getDir(text) }}
+              >
+                {text}
+              </pre>
               <div className={styles.assets}>
                 {links.length > 0 &&
-                  links.map((link) => (
+                  links.slice(1).map((link) => (
                     <div className={styles.assetBox} key={link}>
                       <img className={styles.assetImg} src={link} alt="" />
                       <span className={styles.assetText}>
