@@ -11,6 +11,7 @@ import { Header } from "~/components/Header/Header";
 import fullStar from "~/assets/images/پر.png";
 import emptyStar from "~/assets/images/خالی.png";
 import image from "~/assets/images/روز برنامه نویس.png";
+import arrow from "~/assets/images/Arrow Left.png";
 import { Question as QuestionType, QuestionInfo } from "~/types";
 import { questionActions } from "~/store/questions.slice";
 import { Loading } from "~/components";
@@ -140,6 +141,7 @@ export const Question = () => {
                         {questionInfo.isStarred ? "طلایی" : "عادی"}
                       </span>
                     </div>
+                    <img width={35} src={arrow} alt="" onClick={()=>window.location.href="/"} />
                   </div>
                 </div>
                 <div className={styles.Line} />
