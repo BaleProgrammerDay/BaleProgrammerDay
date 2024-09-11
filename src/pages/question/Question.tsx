@@ -171,7 +171,7 @@ export const Question = () => {
                       dir="ltr"
                       target="_blank"
                     >
-                      File Zip!
+                      File Zip! Click to download.
                     </a>
                   </div>
                 )}
